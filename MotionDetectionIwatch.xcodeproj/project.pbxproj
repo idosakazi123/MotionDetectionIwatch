@@ -20,6 +20,9 @@
 		8DD590B92179F317002DC45D /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD590B82179F317002DC45D /* ExtensionDelegate.swift */; };
 		8DD590BB2179F317002DC45D /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD590BA2179F317002DC45D /* NotificationController.swift */; };
 		8DD590BD2179F318002DC45D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8DD590BC2179F318002DC45D /* Assets.xcassets */; };
+		8DD590CF2179F39E002DC45D /* WatchConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DD590CE2179F39E002DC45D /* WatchConnectivity.framework */; };
+		8DD590D12179F3BB002DC45D /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DD590D02179F3BB002DC45D /* CoreMotion.framework */; };
+		8DD590D32179F3CD002DC45D /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DD590D22179F3CD002DC45D /* HealthKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +86,9 @@
 		8DD590BC2179F318002DC45D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8DD590BE2179F318002DC45D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8DD590BF2179F318002DC45D /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		8DD590CE2179F39E002DC45D /* WatchConnectivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WatchConnectivity.framework; path = System/Library/Frameworks/WatchConnectivity.framework; sourceTree = SDKROOT; };
+		8DD590D02179F3BB002DC45D /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		8DD590D22179F3CD002DC45D /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +96,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8DD590D32179F3CD002DC45D /* HealthKit.framework in Frameworks */,
+				8DD590D12179F3BB002DC45D /* CoreMotion.framework in Frameworks */,
+				8DD590CF2179F39E002DC45D /* WatchConnectivity.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,6 +119,7 @@
 				8DD590A62179F316002DC45D /* MotionDetectionIwatch WatchKit App */,
 				8DD590B52179F317002DC45D /* MotionDetectionIwatch WatchKit Extension */,
 				8DD590912179F315002DC45D /* Products */,
+				8DD590CD2179F39E002DC45D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -157,6 +167,16 @@
 				8DD590BF2179F318002DC45D /* PushNotificationPayload.apns */,
 			);
 			path = "MotionDetectionIwatch WatchKit Extension";
+			sourceTree = "<group>";
+		};
+		8DD590CD2179F39E002DC45D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8DD590D22179F3CD002DC45D /* HealthKit.framework */,
+				8DD590D02179F3BB002DC45D /* CoreMotion.framework */,
+				8DD590CE2179F39E002DC45D /* WatchConnectivity.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

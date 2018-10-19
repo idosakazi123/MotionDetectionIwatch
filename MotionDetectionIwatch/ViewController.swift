@@ -7,12 +7,82 @@
 //
 
 import UIKit
+import WatchConnectivity
 
-class ViewController: UIViewController {
+class ViewController: UIViewController,WCSessionDelegate {
 
+    func sessionDidBecomeInactive(_ session: WCSession) {}
+    
+    func sessionDidDeactivate(_ session: WCSession) {}
+    
+    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {}
+    
+    //private let session: WCSession? = WCSession.isSupported() ? WCSession.default : nil
+    var session: WCSession?
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        processIwatchContext()
+        
+        if WCSession.isSupported() {
+            self.session = WCSession.default
+            self.session?.delegate = self
+            self.session?.activate()
+        }
+    }
+    
+    
+    @IBOutlet weak var startLabel: UILabel!
+    
+    
+    @IBAction func switchValueChanged(_ sender: UISwitch) {
+        print("\(self.session!)")
+        
+        if let validSession = session{
+            
+            let iPhoneAppContext = ["switchStatus": sender.isOn]
+            print("\(iPhoneAppContext)")
+            do {
+                try validSession.updateApplicationContext(iPhoneAppContext)
+            } catch {
+                print("Something went wrong")
+            }
+        }
+    }
+    
+    func processIwatchContext() {
+        if let iPhoneContext = session?.receivedApplicationContext as? [String : String] {
+            
+            if iPhoneContext["buttonStatus"] == "START" {
+                startLabel.text = "STOP"
+            } else {
+                startLabel.text = "START"
+            }
+            
+            if let csvString = iPhoneContext["csvAcce"] { // take the data from the dictionary
+                let fileName = "watchEX"
+                let fileManager = FileManager.default
+                do{
+                    let path = try fileManager.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+                    let fileURL = path.appendingPathComponent(fileName).appendingPathExtension("csv")
+                    print("FilePath: \(fileURL.path)")
+                    try csvString.write(to: fileURL, atomically: true, encoding: String.Encoding.utf8)
+                } catch let error as NSError{
+                    print("Failed to write to URL")
+                    print(error)
+                }
+            }
+        }
+    }
+    
+    
+    func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String : Any]) {
+        DispatchQueue.main.async() {
+            self.processIwatchContext()
+        }
     }
 
 
