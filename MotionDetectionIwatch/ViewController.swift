@@ -57,9 +57,9 @@ class ViewController: UIViewController,WCSessionDelegate {
         if let iPhoneContext = session?.receivedApplicationContext as? [String : String] {
             
             if iPhoneContext["buttonStatus"] == "START" {
-                startLabel.text = "STOP"
+                startLabel.text = "NOT WORKING"
             } else {
-                startLabel.text = "START"
+                startLabel.text = "WORKING"
             }
             
             if let csvString = iPhoneContext["csvAcce"] { // take the data from the dictionary
