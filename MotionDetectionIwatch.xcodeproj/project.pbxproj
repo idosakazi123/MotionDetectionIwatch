@@ -1,0 +1,628 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8DD590942179F315002DC45D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD590932179F315002DC45D /* AppDelegate.swift */; };
+		8DD590962179F315002DC45D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD590952179F315002DC45D /* ViewController.swift */; };
+		8DD590992179F315002DC45D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8DD590972179F315002DC45D /* Main.storyboard */; };
+		8DD5909B2179F316002DC45D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8DD5909A2179F316002DC45D /* Assets.xcassets */; };
+		8DD5909E2179F316002DC45D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8DD5909C2179F316002DC45D /* LaunchScreen.storyboard */; };
+		8DD590A32179F316002DC45D /* MotionDetectionIwatch WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 8DD590A22179F316002DC45D /* MotionDetectionIwatch WatchKit App.app */; };
+		8DD590A92179F316002DC45D /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8DD590A72179F316002DC45D /* Interface.storyboard */; };
+		8DD590AB2179F317002DC45D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8DD590AA2179F317002DC45D /* Assets.xcassets */; };
+		8DD590B22179F317002DC45D /* MotionDetectionIwatch WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 8DD590B12179F317002DC45D /* MotionDetectionIwatch WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		8DD590B72179F317002DC45D /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD590B62179F317002DC45D /* InterfaceController.swift */; };
+		8DD590B92179F317002DC45D /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD590B82179F317002DC45D /* ExtensionDelegate.swift */; };
+		8DD590BB2179F317002DC45D /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD590BA2179F317002DC45D /* NotificationController.swift */; };
+		8DD590BD2179F318002DC45D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8DD590BC2179F318002DC45D /* Assets.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8DD590A42179F316002DC45D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8DD590882179F315002DC45D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8DD590A12179F316002DC45D;
+			remoteInfo = "MotionDetectionIwatch WatchKit App";
+		};
+		8DD590B32179F317002DC45D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8DD590882179F315002DC45D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8DD590B02179F317002DC45D;
+			remoteInfo = "MotionDetectionIwatch WatchKit Extension";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		8DD590C52179F318002DC45D /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				8DD590B22179F317002DC45D /* MotionDetectionIwatch WatchKit Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8DD590C92179F318002DC45D /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				8DD590A32179F316002DC45D /* MotionDetectionIwatch WatchKit App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		8DD590902179F315002DC45D /* MotionDetectionIwatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MotionDetectionIwatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8DD590932179F315002DC45D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		8DD590952179F315002DC45D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		8DD590982179F315002DC45D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		8DD5909A2179F316002DC45D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8DD5909D2179F316002DC45D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		8DD5909F2179F316002DC45D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8DD590A22179F316002DC45D /* MotionDetectionIwatch WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MotionDetectionIwatch WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8DD590A82179F316002DC45D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		8DD590AA2179F317002DC45D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8DD590AC2179F317002DC45D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8DD590B12179F317002DC45D /* MotionDetectionIwatch WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "MotionDetectionIwatch WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8DD590B62179F317002DC45D /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		8DD590B82179F317002DC45D /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		8DD590BA2179F317002DC45D /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		8DD590BC2179F318002DC45D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8DD590BE2179F318002DC45D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8DD590BF2179F318002DC45D /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8DD5908D2179F315002DC45D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8DD590AE2179F317002DC45D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8DD590872179F315002DC45D = {
+			isa = PBXGroup;
+			children = (
+				8DD590922179F315002DC45D /* MotionDetectionIwatch */,
+				8DD590A62179F316002DC45D /* MotionDetectionIwatch WatchKit App */,
+				8DD590B52179F317002DC45D /* MotionDetectionIwatch WatchKit Extension */,
+				8DD590912179F315002DC45D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		8DD590912179F315002DC45D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8DD590902179F315002DC45D /* MotionDetectionIwatch.app */,
+				8DD590A22179F316002DC45D /* MotionDetectionIwatch WatchKit App.app */,
+				8DD590B12179F317002DC45D /* MotionDetectionIwatch WatchKit Extension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8DD590922179F315002DC45D /* MotionDetectionIwatch */ = {
+			isa = PBXGroup;
+			children = (
+				8DD590932179F315002DC45D /* AppDelegate.swift */,
+				8DD590952179F315002DC45D /* ViewController.swift */,
+				8DD590972179F315002DC45D /* Main.storyboard */,
+				8DD5909A2179F316002DC45D /* Assets.xcassets */,
+				8DD5909C2179F316002DC45D /* LaunchScreen.storyboard */,
+				8DD5909F2179F316002DC45D /* Info.plist */,
+			);
+			path = MotionDetectionIwatch;
+			sourceTree = "<group>";
+		};
+		8DD590A62179F316002DC45D /* MotionDetectionIwatch WatchKit App */ = {
+			isa = PBXGroup;
+			children = (
+				8DD590A72179F316002DC45D /* Interface.storyboard */,
+				8DD590AA2179F317002DC45D /* Assets.xcassets */,
+				8DD590AC2179F317002DC45D /* Info.plist */,
+			);
+			path = "MotionDetectionIwatch WatchKit App";
+			sourceTree = "<group>";
+		};
+		8DD590B52179F317002DC45D /* MotionDetectionIwatch WatchKit Extension */ = {
+			isa = PBXGroup;
+			children = (
+				8DD590B62179F317002DC45D /* InterfaceController.swift */,
+				8DD590B82179F317002DC45D /* ExtensionDelegate.swift */,
+				8DD590BA2179F317002DC45D /* NotificationController.swift */,
+				8DD590BC2179F318002DC45D /* Assets.xcassets */,
+				8DD590BE2179F318002DC45D /* Info.plist */,
+				8DD590BF2179F318002DC45D /* PushNotificationPayload.apns */,
+			);
+			path = "MotionDetectionIwatch WatchKit Extension";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8DD5908F2179F315002DC45D /* MotionDetectionIwatch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8DD590CA2179F318002DC45D /* Build configuration list for PBXNativeTarget "MotionDetectionIwatch" */;
+			buildPhases = (
+				8DD5908C2179F315002DC45D /* Sources */,
+				8DD5908D2179F315002DC45D /* Frameworks */,
+				8DD5908E2179F315002DC45D /* Resources */,
+				8DD590C92179F318002DC45D /* Embed Watch Content */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8DD590A52179F316002DC45D /* PBXTargetDependency */,
+			);
+			name = MotionDetectionIwatch;
+			productName = MotionDetectionIwatch;
+			productReference = 8DD590902179F315002DC45D /* MotionDetectionIwatch.app */;
+			productType = "com.apple.product-type.application";
+		};
+		8DD590A12179F316002DC45D /* MotionDetectionIwatch WatchKit App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8DD590C62179F318002DC45D /* Build configuration list for PBXNativeTarget "MotionDetectionIwatch WatchKit App" */;
+			buildPhases = (
+				8DD590A02179F316002DC45D /* Resources */,
+				8DD590C52179F318002DC45D /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8DD590B42179F317002DC45D /* PBXTargetDependency */,
+			);
+			name = "MotionDetectionIwatch WatchKit App";
+			productName = "MotionDetectionIwatch WatchKit App";
+			productReference = 8DD590A22179F316002DC45D /* MotionDetectionIwatch WatchKit App.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		8DD590B02179F317002DC45D /* MotionDetectionIwatch WatchKit Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8DD590C22179F318002DC45D /* Build configuration list for PBXNativeTarget "MotionDetectionIwatch WatchKit Extension" */;
+			buildPhases = (
+				8DD590AD2179F317002DC45D /* Sources */,
+				8DD590AE2179F317002DC45D /* Frameworks */,
+				8DD590AF2179F317002DC45D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "MotionDetectionIwatch WatchKit Extension";
+			productName = "MotionDetectionIwatch WatchKit Extension";
+			productReference = 8DD590B12179F317002DC45D /* MotionDetectionIwatch WatchKit Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8DD590882179F315002DC45D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1000;
+				LastUpgradeCheck = 1000;
+				ORGANIZATIONNAME = "Ido Sakazi";
+				TargetAttributes = {
+					8DD5908F2179F315002DC45D = {
+						CreatedOnToolsVersion = 10.0;
+					};
+					8DD590A12179F316002DC45D = {
+						CreatedOnToolsVersion = 10.0;
+					};
+					8DD590B02179F317002DC45D = {
+						CreatedOnToolsVersion = 10.0;
+					};
+				};
+			};
+			buildConfigurationList = 8DD5908B2179F315002DC45D /* Build configuration list for PBXProject "MotionDetectionIwatch" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 8DD590872179F315002DC45D;
+			productRefGroup = 8DD590912179F315002DC45D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8DD5908F2179F315002DC45D /* MotionDetectionIwatch */,
+				8DD590A12179F316002DC45D /* MotionDetectionIwatch WatchKit App */,
+				8DD590B02179F317002DC45D /* MotionDetectionIwatch WatchKit Extension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8DD5908E2179F315002DC45D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8DD5909E2179F316002DC45D /* LaunchScreen.storyboard in Resources */,
+				8DD5909B2179F316002DC45D /* Assets.xcassets in Resources */,
+				8DD590992179F315002DC45D /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8DD590A02179F316002DC45D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8DD590AB2179F317002DC45D /* Assets.xcassets in Resources */,
+				8DD590A92179F316002DC45D /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8DD590AF2179F317002DC45D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8DD590BD2179F318002DC45D /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8DD5908C2179F315002DC45D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8DD590962179F315002DC45D /* ViewController.swift in Sources */,
+				8DD590942179F315002DC45D /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8DD590AD2179F317002DC45D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8DD590BB2179F317002DC45D /* NotificationController.swift in Sources */,
+				8DD590B92179F317002DC45D /* ExtensionDelegate.swift in Sources */,
+				8DD590B72179F317002DC45D /* InterfaceController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8DD590A52179F316002DC45D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8DD590A12179F316002DC45D /* MotionDetectionIwatch WatchKit App */;
+			targetProxy = 8DD590A42179F316002DC45D /* PBXContainerItemProxy */;
+		};
+		8DD590B42179F317002DC45D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8DD590B02179F317002DC45D /* MotionDetectionIwatch WatchKit Extension */;
+			targetProxy = 8DD590B32179F317002DC45D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		8DD590972179F315002DC45D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8DD590982179F315002DC45D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		8DD5909C2179F316002DC45D /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8DD5909D2179F316002DC45D /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		8DD590A72179F316002DC45D /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8DD590A82179F316002DC45D /* Base */,
+			);
+			name = Interface.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		8DD590C02179F318002DC45D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		8DD590C12179F318002DC45D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8DD590C32179F318002DC45D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5LNGJ22NAT;
+				INFOPLIST_FILE = "MotionDetectionIwatch WatchKit Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.sakazi.MotionDetectionIwatch.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 5.0;
+			};
+			name = Debug;
+		};
+		8DD590C42179F318002DC45D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5LNGJ22NAT;
+				INFOPLIST_FILE = "MotionDetectionIwatch WatchKit Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.sakazi.MotionDetectionIwatch.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 5.0;
+			};
+			name = Release;
+		};
+		8DD590C72179F318002DC45D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5LNGJ22NAT;
+				IBSC_MODULE = MotionDetectionIwatch_WatchKit_Extension;
+				INFOPLIST_FILE = "MotionDetectionIwatch WatchKit App/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = com.sakazi.MotionDetectionIwatch.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 5.0;
+			};
+			name = Debug;
+		};
+		8DD590C82179F318002DC45D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5LNGJ22NAT;
+				IBSC_MODULE = MotionDetectionIwatch_WatchKit_Extension;
+				INFOPLIST_FILE = "MotionDetectionIwatch WatchKit App/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = com.sakazi.MotionDetectionIwatch.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 5.0;
+			};
+			name = Release;
+		};
+		8DD590CB2179F318002DC45D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5LNGJ22NAT;
+				INFOPLIST_FILE = MotionDetectionIwatch/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.sakazi.MotionDetectionIwatch;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8DD590CC2179F318002DC45D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5LNGJ22NAT;
+				INFOPLIST_FILE = MotionDetectionIwatch/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.sakazi.MotionDetectionIwatch;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8DD5908B2179F315002DC45D /* Build configuration list for PBXProject "MotionDetectionIwatch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8DD590C02179F318002DC45D /* Debug */,
+				8DD590C12179F318002DC45D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8DD590C22179F318002DC45D /* Build configuration list for PBXNativeTarget "MotionDetectionIwatch WatchKit Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8DD590C32179F318002DC45D /* Debug */,
+				8DD590C42179F318002DC45D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8DD590C62179F318002DC45D /* Build configuration list for PBXNativeTarget "MotionDetectionIwatch WatchKit App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8DD590C72179F318002DC45D /* Debug */,
+				8DD590C82179F318002DC45D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8DD590CA2179F318002DC45D /* Build configuration list for PBXNativeTarget "MotionDetectionIwatch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8DD590CB2179F318002DC45D /* Debug */,
+				8DD590CC2179F318002DC45D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8DD590882179F315002DC45D /* Project object */;
+}
