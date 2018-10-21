@@ -62,8 +62,8 @@ class ViewController: UIViewController,WCSessionDelegate {
                 startLabel.text = "WORKING"
             }
             
-            if let csvString = iPhoneContext["csvAcce"] { // take the data from the dictionary
-                let fileName = "watchEX"
+            if let csvString = iPhoneContext["csvAcceIsEating"] { // take the data from the dictionary
+                let fileName = "isEating"
                 let fileManager = FileManager.default
                 do{
                     let path = try fileManager.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
@@ -75,6 +75,20 @@ class ViewController: UIViewController,WCSessionDelegate {
                     print(error)
                 }
             }
+            if let csvString = iPhoneContext["csvAcceIsNotEating"] { // take the data from the dictionary
+                let fileName = "isNotEating"
+                let fileManager = FileManager.default
+                do{
+                    let path = try fileManager.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+                    let fileURL = path.appendingPathComponent(fileName).appendingPathExtension("csv")
+                    print("FilePath: \(fileURL.path)")
+                    try csvString.write(to: fileURL, atomically: true, encoding: String.Encoding.utf8)
+                } catch let error as NSError{
+                    print("Failed to write to URL")
+                    print(error)
+                }
+            }
+            
         }
     }
     

@@ -17,9 +17,10 @@ class InterfaceController: WKInterfaceController,WCSessionDelegate {
 
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {}
     
-    var change = "START"
+    var changeIsEating = "START"
+    var changeIsNotEAting = "START"
     var motionManager = CMMotionManager()
-    var csvString = "\("Time"),\("Acce X"),\("Acce Y"),\("Acce Z"),\("Gyro X"),\("Gyro Y"),\("Gyro Z")\n"
+    var csvString = "\("Time"),\("Acce X"),\("Acce Y"),\("Acce Z"),\("Gyro X"),\("Gyro Y"),\("Gyro Z"),\("Is Eating")\n"
     
     var acceX : Double = 0
     var acceY : Double = 0
@@ -27,11 +28,10 @@ class InterfaceController: WKInterfaceController,WCSessionDelegate {
     var gyroX : Double = 0
     var gyroY : Double = 0
     var gyroZ : Double = 0
-    var dateSet:Set = Set<String>()
-    var ans : Int = 0
     var date = Date()
-    let interval = 1
+    let interval : Double = 1
     var time = ""
+    //var isEating : Bool = true
     
     
     
@@ -52,7 +52,10 @@ class InterfaceController: WKInterfaceController,WCSessionDelegate {
     
     @IBOutlet weak var displayLabel: WKInterfaceLabel!
     
-    @IBOutlet weak var buttonLabel: WKInterfaceButton!
+    @IBOutlet weak var buttonLabelIsEating: WKInterfaceButton!
+    
+    
+    @IBOutlet weak var buttonLabelNotEating: WKInterfaceButton!
     
     /*
      this function is handle with a session that make the
@@ -77,17 +80,17 @@ class InterfaceController: WKInterfaceController,WCSessionDelegate {
         }
     }
     
-    @IBAction func buttonChangeLabel() {
-        if change == "START"{
-            buttonLabel.setTitle("STOP")
-            change = "STOP"
+    @IBAction func buttonChangeLabelIsEating() {
+        if changeIsEating == "START"{
+            buttonLabelIsEating.setTitle("STOP EATING")
+            changeIsEating = "STOP"
             self.date = Date()
-            startMotion()
-            //startAccelerometers()
-            //startGyroScope()
+            
+            startMotion(isEatingLabel: true)
+            
             if sessionWCS.activationState == .activated{
                 
-                let iWatchAppContext = ["buttonStatus": change]
+                let iWatchAppContext = ["buttonStatus": changeIsEating]
                 do {
                     try sessionWCS.updateApplicationContext(iWatchAppContext)
                 } catch {
@@ -96,14 +99,13 @@ class InterfaceController: WKInterfaceController,WCSessionDelegate {
                 
             }
         }else {
-            buttonLabel.setTitle("START")
-            change = "START"
+            buttonLabelIsEating.setTitle("START EATING")
+            changeIsEating = "START"
             stopDeviceMotion()
-            //stopAccelerometerAndGyro()
             if sessionWCS.activationState == .activated{
-                let iWatchAppContext = ["buttonStatus": change,"csvAcce": self.csvString]
+                let iWatchAppContext = ["buttonStatus": changeIsEating,"csvAcceIsEating": self.csvString]
                 self.csvString = ""
-                self.csvString = "\("Time"),\("Acce X"),\("Acce Y"),\("Acce Z"),\("Gyro x"),\("Gyro Y"),\("Gyro Z")\n"
+                self.csvString = "\("Time"),\("Acce X"),\("Acce Y"),\("Acce Z"),\("Gyro X"),\("Gyro Y"),\("Gyro Z"),\("Is Eating")\n"
                 do {
                     try sessionWCS.updateApplicationContext(iWatchAppContext)
                 } catch {
@@ -117,31 +119,51 @@ class InterfaceController: WKInterfaceController,WCSessionDelegate {
     }
     
     
+    @IBAction func buttonChangeLabelNotEating() {
+        if changeIsNotEAting == "START"{
+            buttonLabelNotEating.setTitle("STOP IS'T EATING")
+            changeIsNotEAting = "STOP"
+            self.date = Date()
+            
+            startMotion(isEatingLabel: false)
+            
+            if sessionWCS.activationState == .activated{
+                
+                let iWatchAppContext = ["buttonStatus": changeIsNotEAting]
+                do {
+                    try sessionWCS.updateApplicationContext(iWatchAppContext)
+                } catch {
+                    print("Something went wrong")
+                }
+                
+            }
+        }else {
+            buttonLabelNotEating.setTitle("START IS'T EATING")
+            changeIsNotEAting = "START"
+            stopDeviceMotion()
+            if sessionWCS.activationState == .activated{
+                let iWatchAppContext = ["buttonStatus": changeIsNotEAting,"csvAcceIsNotEating": self.csvString]
+                self.csvString = ""
+                self.csvString = "\("Time"),\("Acce X"),\("Acce Y"),\("Acce Z"),\("Gyro X"),\("Gyro Y"),\("Gyro Z"),\("Is Eating")\n"
+                do {
+                    try sessionWCS.updateApplicationContext(iWatchAppContext)
+                } catch {
+                    print("Something went wrong")
+                }
+                
+            }
+        }
+    }
+    
+    
+    
     
     func stopDeviceMotion(){
         self.motionManager.stopDeviceMotionUpdates()
     }
     
-    
-    func stopAccelerometerAndGyro(){
-        self.motionManager.stopAccelerometerUpdates()
-        self.motionManager.stopGyroUpdates()
-        //self.motion.stopGyroUpdates()
-        //return self.csvString
-        //        let fileName = "watchEX"
-        //        let fileManager = FileManager.default
-        //        do{
-        //            let path = try fileManager.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
-        //            let fileURL = path.appendingPathComponent(fileName).appendingPathExtension("csv")
-        //            print("FilePath: \(fileURL.path)")
-        //            try self.csvString.write(to: fileURL, atomically: true, encoding: String.Encoding.utf8)
-        //        } catch let error as NSError{
-        //            print("Failed to write to URL")
-        //            print(error)
-        //        }
-    }
-    func startMotion(){
-        motionManager.deviceMotionUpdateInterval = 1.0
+    func startMotion(isEatingLabel: Bool){
+        motionManager.deviceMotionUpdateInterval = self.interval
         motionManager.startDeviceMotionUpdates(to: OperationQueue.current!) { (deviceMotion: CMDeviceMotion?, error: Error?) in
             if error != nil {
                 print("Encountered error: \(error!)")
@@ -164,10 +186,13 @@ class InterfaceController: WKInterfaceController,WCSessionDelegate {
                 
                 self.time = self.getTime()
                 
+                
+                
+                
                 print(self.time)
                 print("Acceleration X:\(self.acceX) Y:\(self.acceY) Z:\(self.acceZ)")
                 print("Gyro X:\(self.gyroX) Y:\(self.gyroY) Z:\(self.gyroZ)")
-                self.csvString = self.csvString.appending("\(self.time),\(self.acceX),\(self.acceY),\(self.acceZ),\(self.gyroX),\(self.gyroY),\(self.gyroZ)\n")
+                self.csvString = self.csvString.appending("\(self.time),\(self.acceX),\(self.acceY),\(self.acceZ),\(self.gyroX),\(self.gyroY),\(self.gyroZ),\(isEatingLabel)\n")
                 /*userAccelStr = String(format: "X: %.1f Y: %.1f Z: %.1f" ,
                  deviceMotion.userAcceleration.x,
                  deviceMotion.userAcceleration.y,
