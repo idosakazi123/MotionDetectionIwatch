@@ -8,18 +8,24 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="14238.10"/>
     </dependencies>
     <scenes>
-        <!--Interface Controller-->
+        <!--eating-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="MotionDetectionIwatch_WatchKit_App" customModuleProvider="target">
+                <controller backgroundImage="eating" id="AgC-eL-Hgc" customClass="InterfaceController" customModule="MotionDetectionIwatch_WatchKit_App" customModuleProvider="target">
                     <items>
-                        <label alignment="center" text="Label" id="K36-dW-vf8"/>
-                        <button width="1" alignment="center" verticalAlignment="center" title="START EATING" id="n4L-ry-epr">
+                        <label alignment="center" text="Label" id="K36-dW-vf8">
+                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </label>
+                        <button width="1" alignment="center" title="START EATING" id="n4L-ry-epr">
+                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="backgroundColor" red="0.57380741830000004" green="0.56553578380000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="buttonChangeLabelIsEating" destination="AgC-eL-Hgc" id="ufH-eX-adf"/>
                             </connections>
                         </button>
                         <button width="1" alignment="left" verticalAlignment="bottom" title="START IS'T EATING" id="GHR-II-HCF">
+                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="backgroundColor" red="0.57380741830000004" green="0.56553578380000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="buttonChangeLabelNotEating" destination="AgC-eL-Hgc" id="is5-8h-T5k"/>
                             </connections>
