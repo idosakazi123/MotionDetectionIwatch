@@ -23,6 +23,7 @@
 		8DD590CF2179F39E002DC45D /* WatchConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DD590CE2179F39E002DC45D /* WatchConnectivity.framework */; };
 		8DD590D12179F3BB002DC45D /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DD590D02179F3BB002DC45D /* CoreMotion.framework */; };
 		8DD590D32179F3CD002DC45D /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DD590D22179F3CD002DC45D /* HealthKit.framework */; };
+		8DEE78EF217E01A10092A712 /* HeartRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DEE78EE217E01A10092A712 /* HeartRate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +90,7 @@
 		8DD590CE2179F39E002DC45D /* WatchConnectivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WatchConnectivity.framework; path = System/Library/Frameworks/WatchConnectivity.framework; sourceTree = SDKROOT; };
 		8DD590D02179F3BB002DC45D /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		8DD590D22179F3CD002DC45D /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+		8DEE78EE217E01A10092A712 /* HeartRate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartRate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +167,7 @@
 				8DD590BC2179F318002DC45D /* Assets.xcassets */,
 				8DD590BE2179F318002DC45D /* Info.plist */,
 				8DD590BF2179F318002DC45D /* PushNotificationPayload.apns */,
+				8DEE78EE217E01A10092A712 /* HeartRate.swift */,
 			);
 			path = "MotionDetectionIwatch WatchKit Extension";
 			sourceTree = "<group>";
@@ -322,6 +325,7 @@
 			files = (
 				8DD590BB2179F317002DC45D /* NotificationController.swift in Sources */,
 				8DD590B92179F317002DC45D /* ExtensionDelegate.swift in Sources */,
+				8DEE78EF217E01A10092A712 /* HeartRate.swift in Sources */,
 				8DD590B72179F317002DC45D /* InterfaceController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

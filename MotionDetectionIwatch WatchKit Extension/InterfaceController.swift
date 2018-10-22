@@ -11,9 +11,12 @@ import Foundation
 import WatchConnectivity
 import CoreMotion
 import HealthKit
+import UIKit
 
 
-class InterfaceController: WKInterfaceController,WCSessionDelegate {
+
+
+class InterfaceController: WKInterfaceController,WCSessionDelegate{
 
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {}
     
@@ -31,9 +34,11 @@ class InterfaceController: WKInterfaceController,WCSessionDelegate {
     var date = Date()
     let interval : Double = 1
     var time = ""
+    
+    
     //var isEating : Bool = true
     
-    
+   
     
     let sessionWCS = WCSession.default
     
@@ -46,6 +51,8 @@ class InterfaceController: WKInterfaceController,WCSessionDelegate {
         sessionWCS.delegate = self
         sessionWCS.activate()
     }
+    
+    
     
     
     
@@ -86,7 +93,10 @@ class InterfaceController: WKInterfaceController,WCSessionDelegate {
             changeIsEating = "STOP"
             self.date = Date()
             
+            //UIApplication.shared.isIdleTimerDisabled = true
+            
             startMotion(isEatingLabel: true)
+            
             
             if sessionWCS.activationState == .activated{
                 
