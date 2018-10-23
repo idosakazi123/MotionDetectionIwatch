@@ -34,10 +34,17 @@ class InterfaceController: WKInterfaceController,WCSessionDelegate{
     var date = Date()
     let interval : Double = 1
     var time = ""
+    let healthKitManager = HealthKitManager.sharedInstance
+    var workoutSession : HKWorkoutSession?
     
+    //var isWorkoutInProgress : Bool = false
+    var heartRate : String = ""
     
-    //var isEating : Bool = true
+    var workoutStartDate : Date?
     
+    var hearRateQuery : HKQuery?
+    
+    var heartRateSamples:[HKQuantitySample] = [HKQuantitySample]()
    
     
     let sessionWCS = WCSession.default
@@ -47,6 +54,11 @@ class InterfaceController: WKInterfaceController,WCSessionDelegate{
         
         // Configure interface objects here.
         processApplicationContext()
+        healthKitManager.authorizeHealthKit{ (success,error) in
+            print("Was healthkit successful? \(success)")
+            
+            self.createWorkoutSession()
+        }
         
         sessionWCS.delegate = self
         sessionWCS.activate()
@@ -94,6 +106,7 @@ class InterfaceController: WKInterfaceController,WCSessionDelegate{
             self.date = Date()
             
             //UIApplication.shared.isIdleTimerDisabled = true
+            startWorkoutSession()
             
             startMotion(isEatingLabel: true)
             
@@ -112,6 +125,8 @@ class InterfaceController: WKInterfaceController,WCSessionDelegate{
             buttonLabelIsEating.setTitle("START EATING")
             changeIsEating = "START"
             stopDeviceMotion()
+            endWorkoutSession()
+            
             if sessionWCS.activationState == .activated{
                 let iWatchAppContext = ["buttonStatus": changeIsEating,"csvAcceIsEating": self.csvString]
                 self.csvString = ""
@@ -135,7 +150,10 @@ class InterfaceController: WKInterfaceController,WCSessionDelegate{
             changeIsNotEAting = "STOP"
             self.date = Date()
             
-            startMotion(isEatingLabel: false)
+            //startMotion(isEatingLabel: false)
+            print("hello")
+            //heartRate.subscribeToHeartBeatChanges()
+            //print(heartRate.getHeartRate())
             
             if sessionWCS.activationState == .activated{
                 
@@ -200,6 +218,7 @@ class InterfaceController: WKInterfaceController,WCSessionDelegate{
                 
                 
                 print(self.time)
+                print(self.heartRate)
                 print("Acceleration X:\(self.acceX) Y:\(self.acceY) Z:\(self.acceZ)")
                 print("Gyro X:\(self.gyroX) Y:\(self.gyroY) Z:\(self.gyroZ)")
                 self.csvString = self.csvString.appending("\(self.time),\(self.acceX),\(self.acceY),\(self.acceZ),\(self.gyroX),\(self.gyroY),\(self.gyroZ),\(isEatingLabel)\n")
@@ -231,6 +250,61 @@ class InterfaceController: WKInterfaceController,WCSessionDelegate{
         return str
     }
     
+    func createWorkoutSession(){
+        
+        let workoutConfiguration = HKWorkoutConfiguration()
+        workoutConfiguration.activityType = .other
+        workoutConfiguration.locationType = .unknown
+        do{
+            self.workoutSession =  try HKWorkoutSession(healthStore: healthKitManager.healthStore, configuration: workoutConfiguration)
+            workoutSession?.delegate = self
+        }catch{
+            print("Exception throw")
+        }
+        
+    }
+    
+    func startWorkoutSession(){
+        if self.workoutSession == nil{
+            createWorkoutSession()
+        }
+        guard let session = workoutSession else{
+            print("Cannot start a workout without a workout session")
+            return
+        }
+        healthKitManager.healthStore.start(session)
+        self.workoutStartDate = Date()
+    }
+    
+    func endWorkoutSession() {
+        guard let session = workoutSession else{
+            print("Cannot start a workout without a workout session")
+            return
+        }
+         healthKitManager.healthStore.end(session)
+        saveWorkout()
+    }
+    
+    
+    func saveWorkout(){
+        guard let startDate = workoutStartDate else {
+            return
+        }
+        let workout = HKWorkout(activityType: .other, start: startDate, end: Date())
+        
+        healthKitManager.healthStore.save(workout) {[weak self] (success, error) in
+            print("Was saveworkout successful? \(success)")
+            guard let samples = self?.heartRateSamples else{
+                return
+            }
+            
+            self?.healthKitManager.healthStore.add(samples, to: workout, completion: { (success, error) in
+                if success{
+                    print("Successfully saved heart rate samples.")
+                }
+            })
+        }
+    }
     
     
     override func willActivate() {
@@ -243,4 +317,55 @@ class InterfaceController: WKInterfaceController,WCSessionDelegate{
         super.didDeactivate()
     }
 
+}
+
+extension InterfaceController: HKWorkoutSessionDelegate{
+    func workoutSession(_ workoutSession: HKWorkoutSession, didFailWithError error: Error) {
+        print("Workout failed with error: \(error)")
+    }
+    
+    func workoutSession(_ workoutSession: HKWorkoutSession, didChangeTo toState: HKWorkoutSessionState, from fromState: HKWorkoutSessionState, date: Date) {
+        switch toState{
+        case.running:
+            print("workout started")
+            guard let workoutStartDate = workoutStartDate else {
+                return
+            }
+            if let query = healthKitManager.createHeartRateStreamingQuery(workoutStartDate){
+                self.hearRateQuery = query
+                self.healthKitManager.heartRateDelegate = self
+                healthKitManager.healthStore.execute(query)
+            }
+        case.ended:
+            print("workout ended")
+            if let query = self.hearRateQuery{
+                healthKitManager.healthStore.stop(query)
+            }
+        default:
+            print("Other workout state")
+        }
+    }
+}
+
+extension InterfaceController : HeartRateDelegate{
+    func heartRateUpdated(heartRateSamples: [HKSample]) {
+        guard let heartRateSamples = heartRateSamples as?  [HKQuantitySample] else {
+            return
+        }
+        
+        DispatchQueue.main.async {
+            self.heartRateSamples = heartRateSamples
+            guard let sample = heartRateSamples.first else {
+                return
+            }
+            
+            let heartRateUnit = HKUnit(from: "count/min")
+            let value = sample
+                .quantity
+                .doubleValue(for: heartRateUnit)
+            //let value = sample.quantity.doubleValue(for: HKUnit(form: "count/min"))
+            let heartRateString = String(format: "%.00f", value)
+            self.heartRate = heartRateString
+        }
+    }
 }

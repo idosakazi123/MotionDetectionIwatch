@@ -9,6 +9,7 @@
 import UIKit
 import WatchConnectivity
 
+
 class ViewController: UIViewController,WCSessionDelegate {
 
     func sessionDidBecomeInactive(_ session: WCSession) {}
@@ -20,7 +21,7 @@ class ViewController: UIViewController,WCSessionDelegate {
     //private let session: WCSession? = WCSession.isSupported() ? WCSession.default : nil
     var session: WCSession?
     
-    
+    let healthKitManager = HealthKitManager.sharedInstance
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -31,6 +32,10 @@ class ViewController: UIViewController,WCSessionDelegate {
             self.session = WCSession.default
             self.session?.delegate = self
             self.session?.activate()
+        }
+        
+        healthKitManager.authorizeHealthKit{ (success,error) in
+            print("Was healthkit successful? \(success)")
         }
     }
     
