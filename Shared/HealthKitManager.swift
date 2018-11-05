@@ -10,6 +10,7 @@ import Foundation
 import WatchKit
 import HealthKit
 import UIKit
+
 protocol HeartRateDelegate {
     func heartRateUpdated(heartRateSamples: [HKSample])
 }

@@ -16,24 +16,16 @@
                         <label alignment="center" text="Label" id="K36-dW-vf8">
                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </label>
-                        <button width="1" alignment="center" title="START EATING" id="n4L-ry-epr">
+                        <button width="1" alignment="center" verticalAlignment="bottom" title="START ACTIVITY" id="n4L-ry-epr">
                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <color key="backgroundColor" red="0.57380741830000004" green="0.56553578380000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="buttonChangeLabelIsEating" destination="AgC-eL-Hgc" id="ufH-eX-adf"/>
                             </connections>
                         </button>
-                        <button width="1" alignment="left" verticalAlignment="bottom" title="START IS'T EATING" id="GHR-II-HCF">
-                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <color key="backgroundColor" red="0.57380741830000004" green="0.56553578380000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <connections>
-                                <action selector="buttonChangeLabelNotEating" destination="AgC-eL-Hgc" id="is5-8h-T5k"/>
-                            </connections>
-                        </button>
                     </items>
                     <connections>
                         <outlet property="buttonLabelIsEating" destination="n4L-ry-epr" id="M2o-PX-Kv3"/>
-                        <outlet property="buttonLabelNotEating" destination="GHR-II-HCF" id="IfE-u1-fYh"/>
                         <outlet property="displayLabel" destination="K36-dW-vf8" id="2xf-qw-V5W"/>
                     </connections>
                 </controller>
