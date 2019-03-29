@@ -42,12 +42,14 @@ class InterfaceController: WKInterfaceController,WCSessionDelegate{
     let semaphore = DispatchSemaphore(value: 1)
     var date = Date()
     var checkDate = Date()
-    let interval : Double = 1/50
+    let interval : Double = 1/10
     var sendInterval = 0;
-    var stillRunning = false;
+    //var stillRunning = false;
     let healthKitManager = HealthKitManager.sharedInstance
     var workoutSession : HKWorkoutSession?
     var time = ""
+    
+    var takeTime = ""
     
     var checkTime = ""
     
@@ -104,16 +106,16 @@ class InterfaceController: WKInterfaceController,WCSessionDelegate{
         if changeIsActivity == "START"{
             buttonLabelIsEating.setTitle("STOP ACTIVITY")
             changeIsActivity = "STOP"
-            self.stillRunning = false
+            //self.stillRunning = false
             self.csvString = ""
             self.date = Date()
             
             //UIApplication.shared.isIdleTimerDisabled = true
-            DispatchQueue.main.async{
-                self.startWorkoutSession()
-                
-                self.startMotion(isEatingLabel: true) //need to check out side the main thread
-            }
+            //DispatchQueue.main.async{
+            self.startWorkoutSession()
+            
+            self.startMotion(isEatingLabel: true) //need to check outside the main thread
+            //}
            
             
             
@@ -130,10 +132,11 @@ class InterfaceController: WKInterfaceController,WCSessionDelegate{
             }
         }else {
             buttonLabelIsEating.setTitle("START ACTIVITY")
-            changeIsActivity = "START"
+            
+            self.stopTimer = self.getCurrentTime();
            
             
-            if self.sessionWCS.activationState == .activated{
+            /*if self.sessionWCS.activationState == .activated{
                 let iWatchAppContext = ["buttonStatus": self.changeIsActivity]
                 self.csvString = ""
                 do {
@@ -142,10 +145,9 @@ class InterfaceController: WKInterfaceController,WCSessionDelegate{
                     print("Something went wrong")
                 }
                 
-            }
+            }*/
             DispatchQueue.global(qos: .utility).async {
                 //self.checkDate = self.date
-                self.stopTimer = self.getCurrentTime();
                 self.semaphore.wait()
                 self.checkTime = self.time
                 self.semaphore.signal()
@@ -155,44 +157,54 @@ class InterfaceController: WKInterfaceController,WCSessionDelegate{
                     //self.startWorkoutSession()
                     
                     //self.startMotion(isEatingLabel: true)
-                    self.checkTime = self.getCheckTime()
+                    //self.checkTime = self.getCheckTime()
                     self.semaphore.wait()
                     self.checkTime = self.time
                     self.semaphore.signal()
                     print("stopTimer: \(self.stopTimer)")
                     print("selfTimer: \(self.checkTime)")
                 }
+            
                 self.stopDeviceMotion()
                 //buttonLabelIsEating.setEnabled(true)
                 self.endWorkoutSession()
-                self.stillRunning = true;
-                
+                //self.stillRunning = true;
+                self.workoutSession = nil
+            
                 /*DispatchQueue.main.async() {
                  self.actualCsvString = self.csvString;
                  }*/
                 //print("csv" + ":" + self.csvString);
-                
-                
-                self.workoutSession = nil
-                //self.csvString = ""
-                /*self.csvString = "\("Time"),\("Acce X"),\("Acce Y"),\("Acce Z"),\("Gyro X"),\("Gyro Y"),\("Gyro Z"),\("Gravity X"),\("Gravity Y"),\("Gravity Z"),\("Roll"),\("Pitch"),\("Yaw"),\("Heart Rate")\n"*/
-                if self.sessionWCS.activationState == .activated{
-                    let iWatchAppContext = ["buttonStatus": self.changeIsActivity,"csvAcceIsActivity": self.csvString]
-                    self.csvString = ""
+                self.changeIsActivity = "START"
+                if self.sessionWCS.activationState == .activated && self.workoutSession == nil{
+                    let iWatchAppContext = ["buttonStatus": self.changeIsActivity,"csvAcceIsActivity": ""]
+                    //self.csvString = ""
                     do {
                         try self.sessionWCS.updateApplicationContext(iWatchAppContext)
+                        print("Send All")
                     } catch {
                         print("Something went wrong")
                     }
                     
                 }
-            }
-           
                 
             
-     
-                
+                //self.csvString = ""
+                /*self.csvString = "\("Time"),\("Acce X"),\("Acce Y"),\("Acce Z"),\("Gyro X"),\("Gyro Y"),\("Gyro Z"),\("Gravity X"),\("Gravity Y"),\("Gravity Z"),\("Roll"),\("Pitch"),\("Yaw"),\("Heart Rate")\n"*/
+               
+           }
             
+            /*if self.sessionWCS.activationState == .activated{
+                let iWatchAppContext = ["buttonStatus": self.changeIsActivity,"csvAcceIsActivity": self.csvString]
+                self.csvString = ""
+                do {
+                    try self.sessionWCS.updateApplicationContext(iWatchAppContext)
+                    print("Send All1")
+                } catch {
+                    print("Something went wrong")
+                }
+                
+            }*/
             
             
             /*if sessionWCS.activationState == .activated{
@@ -261,29 +273,17 @@ class InterfaceController: WKInterfaceController,WCSessionDelegate{
                 //get time
                 self.semaphore.wait()
                 self.time = self.getTime()
+                self.takeTime = self.time
                 self.semaphore.signal()
                 //print(self.heartRate)
-                print("collect sensors in motionManager: " + "\(self.time)")
+                print("collect sensors in motionManager: " + "\(self.takeTime)")
                 print("Acceleration X:\(dataCollection.acceX) Y:\(dataCollection.acceY) Z:\(dataCollection.acceZ)")
                 //print("Gyro X:\(self.gyroX) Y:\(self.gyroY) Z:\(self.gyroZ)")
-                self.csvString.append("\(self.time),\(dataCollection.acceX),\(dataCollection.acceY),\(dataCollection.acceZ),\(dataCollection.gyroX),\(dataCollection.gyroY),\(dataCollection.gyroZ),\(dataCollection.gravX),\(dataCollection.gravY),\(dataCollection.gravZ),\(dataCollection.roll),\(dataCollection.pitch),\(dataCollection.yaw),\(self.heartRate)\n")
+            self.csvString.append("\(self.takeTime),\(dataCollection.acceX),\(dataCollection.acceY),\(dataCollection.acceZ),\(dataCollection.gyroX),\(dataCollection.gyroY),\(dataCollection.gyroZ),\(dataCollection.gravX),\(dataCollection.gravY),\(dataCollection.gravZ),\(dataCollection.roll),\(dataCollection.pitch),\(dataCollection.yaw),\(self.heartRate)\n")
                 
                 self.sendInterval += 1;
                 
-                if(self.sendInterval == 50){
-                    let iWatchAppContext = ["csvAcceIsActivity": self.csvString]
-                    
-                    do {
-                        print("send it")
-                        try self.sessionWCS.updateApplicationContext(iWatchAppContext)
-                        self.csvString = ""
-                        self.sendInterval = 0;
-                    } catch {
-                        print("Something went wrong")
-                    }
-                }
-                if(self.stillRunning){
-                    self.changeIsActivity = "START"
+                if(self.sendInterval == 10){
                     let iWatchAppContext = ["buttonStatus": self.changeIsActivity,"csvAcceIsActivity": self.csvString]
                     
                     do {
@@ -295,6 +295,17 @@ class InterfaceController: WKInterfaceController,WCSessionDelegate{
                         print("Something went wrong")
                     }
                 }
+               /*if(self.stillRunning){
+                    let iWatchAppContext = ["csvAcceIsActivity": self.csvString]
+                    do {
+                        print("send it")
+                        try self.sessionWCS.updateApplicationContext(iWatchAppContext)
+                        self.csvString = ""
+                        self.sendInterval = 0;
+                    } catch {
+                        print("Something went wrong")
+                    }
+                }*/
                 
                 
                 /*if self.sessionWCS.activationState == .activated{
@@ -357,6 +368,7 @@ class InterfaceController: WKInterfaceController,WCSessionDelegate{
         let str = dataFormatter.string(from: self.date)
         return str
     }
+    
     
     func getCheckTime() -> String{
         self.checkDate += TimeInterval(self.interval)
