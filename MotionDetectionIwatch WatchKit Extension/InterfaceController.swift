@@ -39,6 +39,8 @@ class InterfaceController: WKInterfaceController,WCSessionDelegate{
         //var magneticFieldZ : Double = 0
         //var magneticFieldAccuracy : Double = 0
     }
+    
+    
     let semaphore = DispatchSemaphore(value: 1)
     var date = Date()
     var checkDate = Date()
@@ -112,9 +114,12 @@ class InterfaceController: WKInterfaceController,WCSessionDelegate{
             
             //UIApplication.shared.isIdleTimerDisabled = true
             //DispatchQueue.main.async{
-            self.startWorkoutSession()
             
-            self.startMotion(isEatingLabel: true) //need to check outside the main thread
+                self.startWorkoutSession()
+                
+                self.startMotion(isEatingLabel: true) //need to check outside the main thread
+            
+           
             //}
            
             
@@ -166,15 +171,12 @@ class InterfaceController: WKInterfaceController,WCSessionDelegate{
                 }
             
                 self.stopDeviceMotion()
-                //buttonLabelIsEating.setEnabled(true)
+            
                 self.endWorkoutSession()
-                //self.stillRunning = true;
+                
                 self.workoutSession = nil
             
-                /*DispatchQueue.main.async() {
-                 self.actualCsvString = self.csvString;
-                 }*/
-                //print("csv" + ":" + self.csvString);
+            
                 self.changeIsActivity = "START"
                 if self.sessionWCS.activationState == .activated && self.workoutSession == nil{
                     let iWatchAppContext = ["buttonStatus": self.changeIsActivity,"csvAcceIsActivity": ""]
@@ -188,12 +190,8 @@ class InterfaceController: WKInterfaceController,WCSessionDelegate{
                     
                 }
                 
-            
-                //self.csvString = ""
-                /*self.csvString = "\("Time"),\("Acce X"),\("Acce Y"),\("Acce Z"),\("Gyro X"),\("Gyro Y"),\("Gyro Z"),\("Gravity X"),\("Gravity Y"),\("Gravity Z"),\("Roll"),\("Pitch"),\("Yaw"),\("Heart Rate")\n"*/
-               
            }
-            
+      
             /*if self.sessionWCS.activationState == .activated{
                 let iWatchAppContext = ["buttonStatus": self.changeIsActivity,"csvAcceIsActivity": self.csvString]
                 self.csvString = ""
@@ -428,6 +426,7 @@ class InterfaceController: WKInterfaceController,WCSessionDelegate{
         //session.stopActivity(with: self.workoutStartDate)
         healthKitManager.healthStore.end(session)
         saveWorkout()
+        
     }
     
     
