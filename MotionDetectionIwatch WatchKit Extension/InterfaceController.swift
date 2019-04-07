@@ -21,6 +21,8 @@ class InterfaceController: WKInterfaceController,WCSessionDelegate{
     var changeIsActivity = "START"
     var motionManager = CMMotionManager()
     var csvString = ""
+    var csvStringIwatch = "\("Time"),\("Acce_X"),\("Acce_Y"),\("Acce_Z"),\("Gyro_X"),\("Gyro_Y"),\("Gyro_Z"),\("Gravity_X"),\("Gravity_Y"),\("Gravity_Z"),\("Roll"),\("Pitch"),\("Yaw"),\("Heart_Rate")\n"
+    //var fileURL : URL!
     struct DataCollection {
         var acceX : Double = 0
         var acceY : Double = 0
@@ -42,6 +44,7 @@ class InterfaceController: WKInterfaceController,WCSessionDelegate{
     
     
     let semaphore = DispatchSemaphore(value: 1)
+    let semaphore1 = DispatchSemaphore(value: 1)
     var date = Date()
     var checkDate = Date()
     let interval : Double = 1/10
@@ -73,6 +76,7 @@ class InterfaceController: WKInterfaceController,WCSessionDelegate{
         
         // Configure interface objects here.
         processApplicationContext()
+        
         healthKitManager.authorizeHealthKit{ (success,error) in
             print("Was healthkit successful? \(success)")
             self.createWorkoutSession()
@@ -110,14 +114,16 @@ class InterfaceController: WKInterfaceController,WCSessionDelegate{
             changeIsActivity = "STOP"
             //self.stillRunning = false
             self.csvString = ""
+            self.csvStringIwatch = ""
+            self.csvStringIwatch = "\("Time"),\("Acce_X"),\("Acce_Y"),\("Acce_Z"),\("Gyro_X"),\("Gyro_Y"),\("Gyro_Z"),\("Gravity_X"),\("Gravity_Y"),\("Gravity_Z"),\("Roll"),\("Pitch"),\("Yaw"),\("Heart_Rate")\n"
             self.date = Date()
             
             //UIApplication.shared.isIdleTimerDisabled = true
             //DispatchQueue.main.async{
             
-                self.startWorkoutSession()
-                
-                self.startMotion(isEatingLabel: true) //need to check outside the main thread
+            self.startWorkoutSession()
+            
+            self.startMotion(isEatingLabel: true) //need to check outside the main thread
             
            
             //}
@@ -179,7 +185,7 @@ class InterfaceController: WKInterfaceController,WCSessionDelegate{
             
                 self.changeIsActivity = "START"
                 if self.sessionWCS.activationState == .activated && self.workoutSession == nil{
-                    let iWatchAppContext = ["buttonStatus": self.changeIsActivity,"csvAcceIsActivity": ""]
+                    let iWatchAppContext = ["buttonStatus": self.changeIsActivity,"csvAppleWAtch": self.csvStringIwatch]
                     //self.csvString = ""
                     do {
                         try self.sessionWCS.updateApplicationContext(iWatchAppContext)
@@ -189,6 +195,7 @@ class InterfaceController: WKInterfaceController,WCSessionDelegate{
                     }
                     
                 }
+                
                 
            }
       
@@ -277,8 +284,12 @@ class InterfaceController: WKInterfaceController,WCSessionDelegate{
                 print("collect sensors in motionManager: " + "\(self.takeTime)")
                 print("Acceleration X:\(dataCollection.acceX) Y:\(dataCollection.acceY) Z:\(dataCollection.acceZ)")
                 //print("Gyro X:\(self.gyroX) Y:\(self.gyroY) Z:\(self.gyroZ)")
+
+                
             self.csvString.append("\(self.takeTime),\(dataCollection.acceX),\(dataCollection.acceY),\(dataCollection.acceZ),\(dataCollection.gyroX),\(dataCollection.gyroY),\(dataCollection.gyroZ),\(dataCollection.gravX),\(dataCollection.gravY),\(dataCollection.gravZ),\(dataCollection.roll),\(dataCollection.pitch),\(dataCollection.yaw),\(self.heartRate)\n")
                 
+                
+                self.csvStringIwatch.append("\(self.takeTime),\(dataCollection.acceX),\(dataCollection.acceY),\(dataCollection.acceZ),\(dataCollection.gyroX),\(dataCollection.gyroY),\(dataCollection.gyroZ),\(dataCollection.gravX),\(dataCollection.gravY),\(dataCollection.gravZ),\(dataCollection.roll),\(dataCollection.pitch),\(dataCollection.yaw),\(self.heartRate)\n")
                 self.sendInterval += 1;
                 
                 if(self.sendInterval == 10){

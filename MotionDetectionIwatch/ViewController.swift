@@ -8,6 +8,8 @@
 
 import UIKit
 import WatchConnectivity
+import Foundation
+
 
 
 class ViewController: UIViewController,WCSessionDelegate {
@@ -26,25 +28,33 @@ class ViewController: UIViewController,WCSessionDelegate {
     
     var fileURL : URL!
     var date = Date()
-    var interval = 1/50
+    //var interval = 1/50
     var time = ""
+    
+    var csvString = ""
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view, typically from a nib.
         
-        let fileName = "isActivity"
+        //let fileName = "isActivity"
         //let fileManager = FileManager.default
-        let path = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
-        fileURL = path.appendingPathComponent(fileName).appendingPathExtension("csv")
-        let csvString = "\("Time"),\("Acce_X"),\("Acce_Y"),\("Acce_Z"),\("Gyro_X"),\("Gyro_Y"),\("Gyro_Z"),\("Gravity_X"),\("Gravity_Y"),\("Gravity_Z"),\("Roll"),\("Pitch"),\("Yaw"),\("Heart_Rate")\n"
-        do {
-            try csvString.write(to: fileURL, atomically: true, encoding: String.Encoding.utf8)
-        } catch let error as NSError{
-            print(error)
-        }
-        print("FilePath: \(fileURL.path)")
+        //let path = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+        
+        //self.fileURL = path.appendingPathComponent(fileName).appendingPathExtension("csv")
+        
+        
+        self.csvString = "\("Time"),\("Acce_X"),\("Acce_Y"),\("Acce_Z"),\("Gyro_X"),\("Gyro_Y"),\("Gyro_Z"),\("Gravity_X"),\("Gravity_Y"),\("Gravity_Z"),\("Roll"),\("Pitch"),\("Yaw"),\("Heart_Rate")\n"
+        
+        //do {
+        //    try self.csvString.write(to: self.fileURL, atomically: true, encoding: String.Encoding.utf8)
+        //} catch let error as NSError{
+        //    print(error)
+        //}
+        
+        //print("FilePath: \(self.fileURL.path)")
         
         processIwatchContext()
         
@@ -112,17 +122,62 @@ class ViewController: UIViewController,WCSessionDelegate {
                 //self.time = getTime()
                 //print(self.time)
                 //self.sendTimeToWatch()
+                let fileName = "isActivity"
+                //let fileManager = FileManager.default
+                let path = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+                
+                self.fileURL = path.appendingPathComponent(fileName).appendingPathExtension("csv")
+                
+                
+                //self.csvString = "\("Time"),\("Acce_X"),\("Acce_Y"),\("Acce_Z"),\("Gyro_X"),\("Gyro_Y"),\("Gyro_Z"),\("Gravity_X"),\("Gravity_Y"),\("Gravity_Z"),\("Roll"),\("Pitch"),\("Yaw"),\("Heart_Rate")\n"
+                
+                do {
+                    try self.csvString.write(to: self.fileURL, atomically: true, encoding: String.Encoding.utf8)
+                } catch let error as NSError{
+                    print(error)
+                }
+                
+                print("FilePath: \(self.fileURL.path)")
             } else {
                 startLabel.text = "RECORDING"
+                
             }
-            if let csvString = iPhoneContext["csvAcceIsActivity"] { // take the data from the dictionary
-                do{
-                    let fileHandle = try FileHandle(forWritingTo: fileURL)
+            if let csvStringIWatch = iPhoneContext["csvAcceIsActivity"] { // take the data from the dictionary
+                /*do {
+                    try csvStringIWatch.write(to: self.fileURL, atomically: true, encoding: String.Encoding.utf8)
+                } catch let error as NSError{
+                    print(error)
+                }*/
+                 self.csvString.append(csvStringIWatch)
+                /*do{
+                    let fileHandle = try FileHandle(forWritingTo: self.fileURL)
                     fileHandle.seekToEndOfFile()
-                    fileHandle.write(csvString.data(using: .utf8)!)
+                    fileHandle.write(csvStringIWatch.data(using: .utf8)!)
                     fileHandle.closeFile()
+                    
                 } catch let error as NSError{
                     print("Failed to write to URL")
+                    print(error)
+                }*/
+                /*do {
+                    try csvStringIWatch.write(to: self.fileURL, atomically: true, encoding: String.Encoding.utf8)
+                } catch let error as NSError{
+                    print(error)
+                }*/
+            }
+            if let csvStringIWatch = iPhoneContext["csvAppleWAtch"] { // take the data from the dictionary
+                let fileName = "isActivityApple"
+                //let fileManager = FileManager.default
+                let path = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+                
+                self.fileURL = path.appendingPathComponent(fileName).appendingPathExtension("csv")
+                
+                
+                //self.csvString = "\("Time"),\("Acce_X"),\("Acce_Y"),\("Acce_Z"),\("Gyro_X"),\("Gyro_Y"),\("Gyro_Z"),\("Gravity_X"),\("Gravity_Y"),\("Gravity_Z"),\("Roll"),\("Pitch"),\("Yaw"),\("Heart_Rate")\n"
+                
+                do {
+                    try csvStringIWatch.write(to: self.fileURL, atomically: true, encoding: String.Encoding.utf8)
+                } catch let error as NSError{
                     print(error)
                 }
             }

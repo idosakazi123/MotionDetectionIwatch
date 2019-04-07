@@ -96,6 +96,7 @@
 		8DEE78EE217E01A10092A712 /* HealthKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitManager.swift; sourceTree = "<group>"; };
 		8DEE78F0217E26ED0092A712 /* MotionDetectionIwatch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MotionDetectionIwatch.entitlements; sourceTree = "<group>"; };
 		8DEE78F3217E284B0092A712 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+		8DFDEE9D225929D10021B830 /* librpcsvc.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = librpcsvc.tbd; path = usr/lib/librpcsvc.tbd; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,6 +192,7 @@
 		8DD590CD2179F39E002DC45D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8DFDEE9D225929D10021B830 /* librpcsvc.tbd */,
 				8DAAB951217F4FF90018689E /* HealthKit.framework */,
 				8DEE78F3217E284B0092A712 /* HealthKit.framework */,
 				8DD590D02179F3BB002DC45D /* CoreMotion.framework */,
