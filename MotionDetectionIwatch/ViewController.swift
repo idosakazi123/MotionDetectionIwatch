@@ -29,7 +29,7 @@ class ViewController: UIViewController,WCSessionDelegate {
     var fileURL : URL!
     var date = Date()
     //var interval = 1/50
-    var time = ""
+    //var time = ""
     
     var csvString = ""
     
@@ -82,8 +82,8 @@ class ViewController: UIViewController,WCSessionDelegate {
             
             let iPhoneAppContext = ["switchStatus": sender.isOn]
             print("\(iPhoneAppContext)")
-            self.time = getTime()
-            print(self.time)
+            //self.time = getTime()
+            //print(self.time)
             do {
                 try validSession.updateApplicationContext(iPhoneAppContext)
             } catch {
@@ -122,7 +122,8 @@ class ViewController: UIViewController,WCSessionDelegate {
                 //self.time = getTime()
                 //print(self.time)
                 //self.sendTimeToWatch()
-                let fileName = "isActivity"
+                writeToCSV()
+                /*let fileName = "isActivity"
                 //let fileManager = FileManager.default
                 let path = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
                 
@@ -137,7 +138,7 @@ class ViewController: UIViewController,WCSessionDelegate {
                     print(error)
                 }
                 
-                print("FilePath: \(self.fileURL.path)")
+                print("FilePath: \(self.fileURL.path)")*/
             } else {
                 startLabel.text = "RECORDING"
                 
@@ -191,14 +192,30 @@ class ViewController: UIViewController,WCSessionDelegate {
         }
     }
     
-    func getTime() -> String{
+    func writeToCSV(){
+        let fileName = "isActivity"
+        //let fileManager = FileManager.default
+        let path = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+        
+        self.fileURL = path.appendingPathComponent(fileName).appendingPathExtension("csv")
+        
+        do {
+            try self.csvString.write(to: self.fileURL, atomically: true, encoding: String.Encoding.utf8)
+        } catch let error as NSError{
+            print(error)
+        }
+        
+        print("FilePath: \(self.fileURL.path)")
+    }
+    
+    /*func getTime() -> String{
         self.date = Date()
         let dataFormatter = DateFormatter()
         dataFormatter.calendar = Calendar(identifier: .iso8601)
         dataFormatter.dateFormat = "HH:mm:ss"
         let str = dataFormatter.string(from: self.date)
         return str
-    }
+    }*/
     
     /*func writeFile(writeString:String, to_fileName:String ,fileExtension:String = "csv",path:URL){
         do{

@@ -7,8 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8D47D4D8228714A9002B6919 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D47D4D7228714A9002B6919 /* SecondViewController.swift */; };
+		8D47D4DA22871549002B6919 /* HARClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 8D47D4D922871549002B6919 /* HARClassifier.mlmodel */; };
+		8D47D4DC22871B67002B6919 /* momOnPhone2.csv in Resources */ = {isa = PBXBuildFile; fileRef = 8D47D4DB22871B67002B6919 /* momOnPhone2.csv */; };
+		8D47D4DE22871B72002B6919 /* shayOnPhone1.csv in Resources */ = {isa = PBXBuildFile; fileRef = 8D47D4DD22871B72002B6919 /* shayOnPhone1.csv */; };
+		8D47D4E022871B7A002B6919 /* shayIsEating1.csv in Resources */ = {isa = PBXBuildFile; fileRef = 8D47D4DF22871B7A002B6919 /* shayIsEating1.csv */; };
+		8D47D4E222871B83002B6919 /* shayIsEating10.csv in Resources */ = {isa = PBXBuildFile; fileRef = 8D47D4E122871B83002B6919 /* shayIsEating10.csv */; };
+		8D8E25DF226383E900432399 /* MotionDetectionIwatchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8E25DE226383E900432399 /* MotionDetectionIwatchTests.swift */; };
 		8DAAB952217F4FF90018689E /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DAAB951217F4FF90018689E /* HealthKit.framework */; };
 		8DAAB954217F5A590018689E /* HealthKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DEE78EE217E01A10092A712 /* HealthKitManager.swift */; };
+		8DCDF462226392EC004DA7F3 /* ViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DCDF461226392EC004DA7F3 /* ViewControllerTest.swift */; };
 		8DD590942179F315002DC45D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD590932179F315002DC45D /* AppDelegate.swift */; };
 		8DD590962179F315002DC45D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD590952179F315002DC45D /* ViewController.swift */; };
 		8DD590992179F315002DC45D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8DD590972179F315002DC45D /* Main.storyboard */; };
@@ -29,6 +37,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		8D8E25E1226383E900432399 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8DD590882179F315002DC45D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8DD5908F2179F315002DC45D;
+			remoteInfo = MotionDetectionIwatch;
+		};
 		8DD590A42179F316002DC45D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 8DD590882179F315002DC45D /* Project object */;
@@ -71,8 +86,18 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		8D47D4D7228714A9002B6919 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		8D47D4D922871549002B6919 /* HARClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = HARClassifier.mlmodel; sourceTree = "<group>"; };
+		8D47D4DB22871B67002B6919 /* momOnPhone2.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = momOnPhone2.csv; sourceTree = "<group>"; };
+		8D47D4DD22871B72002B6919 /* shayOnPhone1.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = shayOnPhone1.csv; sourceTree = "<group>"; };
+		8D47D4DF22871B7A002B6919 /* shayIsEating1.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = shayIsEating1.csv; sourceTree = "<group>"; };
+		8D47D4E122871B83002B6919 /* shayIsEating10.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = shayIsEating10.csv; sourceTree = "<group>"; };
+		8D8E25DC226383E900432399 /* MotionDetectionIwatchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MotionDetectionIwatchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D8E25DE226383E900432399 /* MotionDetectionIwatchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionDetectionIwatchTests.swift; sourceTree = "<group>"; };
+		8D8E25E0226383E900432399 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8DAAB950217F4FF90018689E /* MotionDetectionIwatch WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "MotionDetectionIwatch WatchKit Extension.entitlements"; sourceTree = "<group>"; };
 		8DAAB951217F4FF90018689E /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS5.0.sdk/System/Library/Frameworks/HealthKit.framework; sourceTree = DEVELOPER_DIR; };
+		8DCDF461226392EC004DA7F3 /* ViewControllerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerTest.swift; sourceTree = "<group>"; };
 		8DD590902179F315002DC45D /* MotionDetectionIwatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MotionDetectionIwatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DD590932179F315002DC45D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8DD590952179F315002DC45D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -100,6 +125,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		8D8E25D9226383E900432399 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8DD5908D2179F315002DC45D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -121,6 +153,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8D8E25DD226383E900432399 /* MotionDetectionIwatchTests */ = {
+			isa = PBXGroup;
+			children = (
+				8D8E25DE226383E900432399 /* MotionDetectionIwatchTests.swift */,
+				8D8E25E0226383E900432399 /* Info.plist */,
+				8DCDF461226392EC004DA7F3 /* ViewControllerTest.swift */,
+			);
+			path = MotionDetectionIwatchTests;
+			sourceTree = "<group>";
+		};
 		8DAAB953217F5A2B0018689E /* Shared */ = {
 			isa = PBXGroup;
 			children = (
@@ -136,6 +178,7 @@
 				8DD590A62179F316002DC45D /* MotionDetectionIwatch WatchKit App */,
 				8DD590B52179F317002DC45D /* MotionDetectionIwatch WatchKit Extension */,
 				8DAAB953217F5A2B0018689E /* Shared */,
+				8D8E25DD226383E900432399 /* MotionDetectionIwatchTests */,
 				8DD590912179F315002DC45D /* Products */,
 				8DD590CD2179F39E002DC45D /* Frameworks */,
 			);
@@ -147,6 +190,7 @@
 				8DD590902179F315002DC45D /* MotionDetectionIwatch.app */,
 				8DD590A22179F316002DC45D /* MotionDetectionIwatch WatchKit App.app */,
 				8DD590B12179F317002DC45D /* MotionDetectionIwatch WatchKit Extension.appex */,
+				8D8E25DC226383E900432399 /* MotionDetectionIwatchTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -155,8 +199,14 @@
 			isa = PBXGroup;
 			children = (
 				8DEE78F0217E26ED0092A712 /* MotionDetectionIwatch.entitlements */,
+				8D47D4DB22871B67002B6919 /* momOnPhone2.csv */,
+				8D47D4DD22871B72002B6919 /* shayOnPhone1.csv */,
+				8D47D4DF22871B7A002B6919 /* shayIsEating1.csv */,
+				8D47D4E122871B83002B6919 /* shayIsEating10.csv */,
+				8D47D4D922871549002B6919 /* HARClassifier.mlmodel */,
 				8DD590932179F315002DC45D /* AppDelegate.swift */,
 				8DD590952179F315002DC45D /* ViewController.swift */,
+				8D47D4D7228714A9002B6919 /* SecondViewController.swift */,
 				8DD590972179F315002DC45D /* Main.storyboard */,
 				8DD5909A2179F316002DC45D /* Assets.xcassets */,
 				8DD5909C2179F316002DC45D /* LaunchScreen.storyboard */,
@@ -204,6 +254,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		8D8E25DB226383E900432399 /* MotionDetectionIwatchTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8D8E25E5226383E900432399 /* Build configuration list for PBXNativeTarget "MotionDetectionIwatchTests" */;
+			buildPhases = (
+				8D8E25D8226383E900432399 /* Sources */,
+				8D8E25D9226383E900432399 /* Frameworks */,
+				8D8E25DA226383E900432399 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8D8E25E2226383E900432399 /* PBXTargetDependency */,
+			);
+			name = MotionDetectionIwatchTests;
+			productName = MotionDetectionIwatchTests;
+			productReference = 8D8E25DC226383E900432399 /* MotionDetectionIwatchTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		8DD5908F2179F315002DC45D /* MotionDetectionIwatch */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8DD590CA2179F318002DC45D /* Build configuration list for PBXNativeTarget "MotionDetectionIwatch" */;
@@ -263,10 +331,14 @@
 		8DD590882179F315002DC45D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1000;
+				LastSwiftUpdateCheck = 1020;
 				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = "Ido Sakazi";
 				TargetAttributes = {
+					8D8E25DB226383E900432399 = {
+						CreatedOnToolsVersion = 10.2;
+						TestTargetID = 8DD5908F2179F315002DC45D;
+					};
 					8DD5908F2179F315002DC45D = {
 						CreatedOnToolsVersion = 10.0;
 						SystemCapabilities = {
@@ -304,18 +376,30 @@
 				8DD5908F2179F315002DC45D /* MotionDetectionIwatch */,
 				8DD590A12179F316002DC45D /* MotionDetectionIwatch WatchKit App */,
 				8DD590B02179F317002DC45D /* MotionDetectionIwatch WatchKit Extension */,
+				8D8E25DB226383E900432399 /* MotionDetectionIwatchTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		8D8E25DA226383E900432399 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8DD5908E2179F315002DC45D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D47D4E222871B83002B6919 /* shayIsEating10.csv in Resources */,
 				8DD5909E2179F316002DC45D /* LaunchScreen.storyboard in Resources */,
+				8D47D4DE22871B72002B6919 /* shayOnPhone1.csv in Resources */,
 				8DD5909B2179F316002DC45D /* Assets.xcassets in Resources */,
+				8D47D4E022871B7A002B6919 /* shayIsEating1.csv in Resources */,
 				8DD590992179F315002DC45D /* Main.storyboard in Resources */,
+				8D47D4DC22871B67002B6919 /* momOnPhone2.csv in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,10 +423,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		8D8E25D8226383E900432399 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8DCDF462226392EC004DA7F3 /* ViewControllerTest.swift in Sources */,
+				8D8E25DF226383E900432399 /* MotionDetectionIwatchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8DD5908C2179F315002DC45D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D47D4D8228714A9002B6919 /* SecondViewController.swift in Sources */,
+				8D47D4DA22871549002B6919 /* HARClassifier.mlmodel in Sources */,
 				8DD590962179F315002DC45D /* ViewController.swift in Sources */,
 				8DD590942179F315002DC45D /* AppDelegate.swift in Sources */,
 				8DAAB954217F5A590018689E /* HealthKitManager.swift in Sources */,
@@ -363,6 +458,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		8D8E25E2226383E900432399 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8DD5908F2179F315002DC45D /* MotionDetectionIwatch */;
+			targetProxy = 8D8E25E1226383E900432399 /* PBXContainerItemProxy */;
+		};
 		8DD590A52179F316002DC45D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 8DD590A12179F316002DC45D /* MotionDetectionIwatch WatchKit App */;
@@ -403,6 +503,48 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		8D8E25E3226383E900432399 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5LNGJ22NAT;
+				INFOPLIST_FILE = MotionDetectionIwatchTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.sakazi.MotionDetectionIwatchTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MotionDetectionIwatch.app/MotionDetectionIwatch";
+			};
+			name = Debug;
+		};
+		8D8E25E4226383E900432399 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5LNGJ22NAT;
+				INFOPLIST_FILE = MotionDetectionIwatchTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.sakazi.MotionDetectionIwatchTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MotionDetectionIwatch.app/MotionDetectionIwatch";
+			};
+			name = Release;
+		};
 		8DD590C02179F318002DC45D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -644,6 +786,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		8D8E25E5226383E900432399 /* Build configuration list for PBXNativeTarget "MotionDetectionIwatchTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8D8E25E3226383E900432399 /* Debug */,
+				8D8E25E4226383E900432399 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		8DD5908B2179F315002DC45D /* Build configuration list for PBXProject "MotionDetectionIwatch" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
