@@ -62,6 +62,10 @@ class InterfaceController: WKInterfaceController,WCSessionDelegate{
     
     var heartRate : String = ""
     
+    var watchBatteryPercentageStart : Float = 0
+    
+    var watchBatteryPercentageStop : Float = 0
+    
     var workoutStartDate : Date?
     
     var hearRateQuery : HKQuery?
@@ -120,6 +124,10 @@ class InterfaceController: WKInterfaceController,WCSessionDelegate{
             
             //UIApplication.shared.isIdleTimerDisabled = true
             //DispatchQueue.main.async{
+            WKInterfaceDevice.current().isBatteryMonitoringEnabled = true
+            
+            self.watchBatteryPercentageStart =  WKInterfaceDevice.current().batteryLevel * 100
+        
             
             self.startWorkoutSession()
             
@@ -195,7 +203,13 @@ class InterfaceController: WKInterfaceController,WCSessionDelegate{
                     }
                     
                 }
+               
+                self.watchBatteryPercentageStop = WKInterfaceDevice.current().batteryLevel * 100.0
                 
+                let finalPercentage = self.watchBatteryPercentageStart - self.watchBatteryPercentageStop
+                print("the start precentage " + "\(self.watchBatteryPercentageStart)")
+                print("the stop precentage " + "\(self.watchBatteryPercentageStop)")
+                print("The Precentage is: " + "\(finalPercentage)")
                 
            }
       

@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreML
+import EventKit
 
 class SecondViewController: UIViewController {
 
@@ -78,8 +79,8 @@ class SecondViewController: UIViewController {
                     let firstTimeArr = arrTime[i-7][0]
                     let lastTimeArr = arrTime[i-1][1]
                     //predictionSegmentsTime.Add([firstTimeArr:lastTimeArr], forKey: predict)
-                    print("prediction: " + "\(predictString)" + ", " + "time: " + "\(firstTimeArr)" + " - " + "\(lastTimeArr)\n")
-                    writeToTextView.append( "Time: " + "\(firstTimeArr)" + " - " + "\(lastTimeArr)" + ", " + "Prediction: " + "\(predictString)\n")
+                    print("prediction: " + "\(predictString)" + " , " + "time: " + "\(firstTimeArr)" + " - " + "\(lastTimeArr)\n")
+                    writeToTextView.append( "Time: " + "\(firstTimeArr)" + " - " + "\(lastTimeArr)" + " , " + "Prediction: " + "\(predictString)\n")
                     predictArrForTime = []
                     j=0
                 }
@@ -115,8 +116,8 @@ class SecondViewController: UIViewController {
                 predictString = predict[0]
                 let firstTimeArr = arrTime[arr.count-1][0]
                 let lastTimeArr = arrTime[arr.count-1][1]
-                print("prediction: " + "\(predictString)" + ", " + "time: " + "\(firstTimeArr)" + " - " + "\(lastTimeArr)")
-                writeToTextView.append( "Time: " + "\(firstTimeArr)" + " - " + "\(lastTimeArr)" + ", " + "Prediction: " + "\(predictString)\n")
+                print("prediction: " + "\(predictString)" + " , " + "time: " + "\(firstTimeArr)" + " - " + "\(lastTimeArr)")
+                writeToTextView.append( "Time: " + "\(firstTimeArr)" + " - " + "\(lastTimeArr)" + " , " + "Prediction: " + "\(predictString)\n")
                 //predictionSegmentsTime.updateValue([firstTimeArr:lastTimeArr], forKey: predict)
                 predictArrForTime = []
             }else if(predictArrForTime.count == 2){
@@ -128,8 +129,8 @@ class SecondViewController: UIViewController {
                 predictString = predict[0]
                 let firstTimeArr = arrTime[arr.count-2][0]
                 let lastTimeArr = arrTime[arr.count-1][1]
-                print("prediction: " + "\(predictString)" + ", " + "time: " + "\(firstTimeArr)" + " - " + "\(lastTimeArr)")
-                writeToTextView.append( "Time: " + "\(firstTimeArr)" + " - " + "\(lastTimeArr)" + ", " + "Prediction: " + "\(predictString)\n")
+                print("prediction: " + "\(predictString)" + " , " + "time: " + "\(firstTimeArr)" + " - " + "\(lastTimeArr)")
+                writeToTextView.append( "Time: " + "\(firstTimeArr)" + " - " + "\(lastTimeArr)" + " , " + "Prediction: " + "\(predictString)\n")
                 //predictionSegmentsTime.updateValue([firstTimeArr:lastTimeArr], forKey: predict)
                 predictArrForTime = []
             }else if(predictArrForTime.count == 3){
@@ -141,8 +142,8 @@ class SecondViewController: UIViewController {
                 predictString = predict[0]
                 let firstTimeArr = arrTime[arr.count-3][0]
                 let lastTimeArr = arrTime[arr.count-1][1]
-                print("prediction: " + "\(predictString)" + ", " + "time: " + "\(firstTimeArr)" + " - " + "\(lastTimeArr)")
-                writeToTextView.append( "Time: " + "\(firstTimeArr)" + " - " + "\(lastTimeArr)" + ", " + "Prediction: " + "\(predictString)\n")
+                print("prediction: " + "\(predictString)" + " , " + "time: " + "\(firstTimeArr)" + " - " + "\(lastTimeArr)")
+                writeToTextView.append( "Time: " + "\(firstTimeArr)" + " - " + "\(lastTimeArr)" + " , " + "Prediction: " + "\(predictString)\n")
                 //predictionSegmentsTime.updateValue([firstTimeArr:lastTimeArr], forKey: predict)
                 predictArrForTime = []
             }else if(predictArrForTime.count == 4){
@@ -154,8 +155,8 @@ class SecondViewController: UIViewController {
                 predictString = predict[0]
                 let firstTimeArr = arrTime[arr.count-4][0]
                 let lastTimeArr = arrTime[arr.count-1][1]
-                print("prediction: " + "\(predictString)" + ", " + "time: " + "\(firstTimeArr)" + " - " + "\(lastTimeArr)")
-                writeToTextView.append( "Time: " + "\(firstTimeArr)" + " - " + "\(lastTimeArr)" + ", " + "Prediction: " + "\(predictString)\n")
+                print("prediction: " + "\(predictString)" + " , " + "time: " + "\(firstTimeArr)" + " - " + "\(lastTimeArr)")
+                writeToTextView.append( "Time: " + "\(firstTimeArr)" + " - " + "\(lastTimeArr)" + " , " + "Prediction: " + "\(predictString)\n")
                 //predictionSegmentsTime.updateValue([firstTimeArr:lastTimeArr], forKey: predict)
                 predictArrForTime = []
             }else if(predictArrForTime.count == 5){
@@ -167,8 +168,8 @@ class SecondViewController: UIViewController {
                 predictString = predict[0]
                 let firstTimeArr = arrTime[arr.count-5][0]
                 let lastTimeArr = arrTime[arr.count-1][1]
-                print("prediction: " + "\(predictString)" + ", " + "time: " + "\(firstTimeArr)" + " - " + "\(lastTimeArr)")
-                writeToTextView.append( "Time: " + "\(firstTimeArr)" + " - " + "\(lastTimeArr)" + ", " + "Prediction: " + "\(predictString)\n")
+                print("prediction: " + "\(predictString)" + " , " + "time: " + "\(firstTimeArr)" + " - " + "\(lastTimeArr)")
+                writeToTextView.append( "Time: " + "\(firstTimeArr)" + " - " + "\(lastTimeArr)" + " , " + "Prediction: " + "\(predictString)\n")
                 //predictionSegmentsTime.updateValue([firstTimeArr:lastTimeArr], forKey: predict)
                 predictArrForTime = []
             }else if(predictArrForTime.count == 6){
@@ -180,8 +181,8 @@ class SecondViewController: UIViewController {
                 predictString = predict[0]
                 let firstTimeArr = arrTime[arr.count-6][0]
                 let lastTimeArr = arrTime[arr.count-1][1]
-                print("prediction: " + "\(predictString)" + ", " + "time: " + "\(firstTimeArr)" + " - " + "\(lastTimeArr)")
-                writeToTextView.append( "Time: " + "\(firstTimeArr)" + " - " + "\(lastTimeArr)" + ", " + "Prediction: " + "\(predictString)\n")
+                print("prediction: " + "\(predictString)" + " , " + "time: " + "\(firstTimeArr)" + " - " + "\(lastTimeArr)")
+                writeToTextView.append( "Time: " + "\(firstTimeArr)" + " - " + "\(lastTimeArr)" + " , " + "Prediction: " + "\(predictString)\n")
                 //predictionSegmentsTime.updateValue([firstTimeArr:lastTimeArr], forKey: predict)
                 predictArrForTime = []
             }
@@ -288,37 +289,152 @@ class SecondViewController: UIViewController {
     @IBAction func makePrediction(_ sender: UIButton) {
         var predictFile : String = ""
         
-        let myAlert = UIAlertController(title: "ALERT", message: "There is no file to predict", preferredStyle: UIAlertController.Style.alert)
+        let noFileAlert = UIAlertController(title: "ALERT", message: "There is no file to predict", preferredStyle: UIAlertController.Style.alert)
         let okAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default) { (ACTION) in
             print("OK button tapped")
         }
-        myAlert.addAction(okAction)
+        noFileAlert.addAction(okAction)
         
-        
+        let enoughDataAlert = UIAlertController(title: "ALERT", message: "There is no enough data to predict", preferredStyle: UIAlertController.Style.alert)
+        let okActionEnoughData = UIAlertAction(title: "OK", style: UIAlertAction.Style.default) { (ACTION) in
+            print("OK button tapped")
+        }
+        enoughDataAlert.addAction(okActionEnoughData)
         
         self.readStringProject = readFile()
+        //print(self.readStringProject)
         if(self.readStringProject.elementsEqual("No File")){
-            self.present(myAlert,animated: true,completion: nil)
+            self.present(noFileAlert,animated: true,completion: nil)
             print("there is no file!!!!")
         }else{
-            predictionInProgress.isHidden = false
+            
             
             //print(self.readStringProject)
             strArr =  makeStringArr(sentence: self.readStringProject)
             //print(strArr?[0])
             //self.createMoldel()
             let (arrFloat,arrTime) = createSegments(strArray:(strArr)!)
-            //print("\(arrTime.count)" + " \(arrFloat.count)" )
-            
-            predictFile = self.createModel(arr : arrFloat ,arrTime: arrTime)
-            
-            //print("hello: " + "\(predictFile)")
+            print("\(arrTime.count)" + " \(arrFloat.count)" )
+            if(arrTime.count == 0 || arrFloat.count == 0){
+                self.present(enoughDataAlert,animated: true,completion: nil)
+                print("there is no enough data!!!!")
+            }else{
+                predictionInProgress.isHidden = false
+                predictFile = self.createModel(arr : arrFloat ,arrTime: arrTime)
+                //print("hello: " + "\(predictFile)")
+                
+                showPredictionTextView.text = predictFile
+                predictionInProgress.text = "THE PREDICTION"
+                splitDateAndprediction(ans: predictFile)
+            }
         }
         
-        showPredictionTextView.text = predictFile
-        predictionInProgress.text = "THE PREDICTION"
+        
     }
     
+    func splitDateAndprediction(ans : String){
+        let lines = ans.split { $0.isNewline }
+        var i = 0
+        var start_time : String = ""
+        var end_time : String = ""
+        let calendar = Calendar.current
+        let year = calendar.component(.year, from: Date())
+        let month = calendar.component(.month, from: Date())
+        let day = calendar.component(.day, from: Date())
+        var starttimeString : String = ""
+        var endtimeString : String = ""
+        var drinking : [String:Int] = ["Drinking":0]
+        var eating : [String:Int] = ["Eating":0]
+        var on_computer : [String:Int] = ["On_Computer":0]
+        var on_phone : [String:Int] = ["On_Phone":0]
+        var arrayDic : [[String:Int]] = []
+        print(lines.count)
+        for line in lines{
+            //let inLine = line.split { $0.isNewline }
+            let inLine = line.split(separator: " ")
+            if(i == 0){
+                start_time = String(inLine[1])
+                starttimeString = "\(year)" + "-" + "\(month)" + "-" + "\(day)" + "T" + "\(start_time)"
+            }else if(i == lines.count-1){
+                end_time = String(inLine[3])
+                endtimeString = "\(year)" + "-" + "\(month)" + "-" + "\(day)" + "T" + "\(end_time)"
+            }
+            
+            
+            let prediction = String(inLine[6])
+            
+            if(prediction.elementsEqual("Drinking")){
+                drinking["Drinking"] = drinking["Drinking"]! + 1
+            }else if(prediction.elementsEqual("Eating")){
+                eating["Eating"] = eating["Eating"]! + 1
+            }else if(prediction.elementsEqual("On_Computer")){
+                on_computer["On_Computer"] = on_computer["On_Computer"]! + 1
+            }else{
+                on_phone["On_Phone"] = on_phone["On_Phone"]! + 1
+            }
+            /*
+             // In our code i need to do space in , when i write the time and prediction
+             print(start_time)
+             print(end_time)
+             print(prediction)
+             */
+            
+            
+            i = i+1
+        }
+        arrayDic.insert(drinking, at: 0)
+        arrayDic.insert(eating, at: 1)
+        arrayDic.insert(on_computer, at: 2)
+        arrayDic.insert(on_phone, at: 3)
+        print(arrayDic)
+        var value = 0
+        var prediction = ""
+        for dic in arrayDic {
+            if(dic.values.first! > value){
+                value = dic.values.first!
+                prediction = dic.keys.first!
+            }
+        }
+        print(endtimeString)
+        let starttimeDate = getDate(formatDate: starttimeString)!
+        let endtimeDate = getDate(formatDate: endtimeString)!
+        
+        addEventToCalendar(title: prediction, description: "", startDate: starttimeDate, endDate: endtimeDate)
+        
+        
+    }
+    
+    func getDate(formatDate : String) -> Date! {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+        dateFormatter.timeZone = TimeZone.current
+        dateFormatter.locale = Locale.current
+        return dateFormatter.date(from: formatDate) // replace Date String
+    }
+    
+    func addEventToCalendar(title: String, description: String?, startDate: Date, endDate: Date, completion: ((_ success: Bool, _ error: NSError?) -> Void)? = nil) {
+        let eventStore = EKEventStore()
+        
+        eventStore.requestAccess(to: .event, completion: { (granted, error) in
+            if (granted) && (error == nil) {
+                let event = EKEvent(eventStore: eventStore)
+                event.title = title
+                event.startDate = startDate
+                event.endDate = endDate
+                event.notes = description
+                event.calendar = eventStore.defaultCalendarForNewEvents
+                do {
+                    try eventStore.save(event, span: .thisEvent)
+                } catch let e as NSError {
+                    completion?(false, e)
+                    return
+                }
+                completion?(true, nil)
+            } else {
+                completion?(false, error as NSError?)
+            }
+        })
+    }
     
     @IBAction func resetButton(_ sender: UIButton) {
         predictionInProgress.text = ""
