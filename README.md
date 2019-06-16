@@ -1,4 +1,4 @@
-# Motion Detection Apple Watch
+# Activity Recognition Using Apple Watch
 Project Assignment:
 
 In this project we will collect data sensors from the apple watch such as :
