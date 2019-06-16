@@ -1,4 +1,9 @@
 # Activity Recognition Using Apple Watch
+
+Attached is a link to the presentation of the project:
+
+https://prezi.com/view/bVVqk21LF0XXkYVDpJhr/
+
 Project Assignment:
 
 In this project we will collect data sensors from the apple watch such as :
@@ -23,6 +28,3 @@ In The Iphone we get the sensors data and append it to a csv file .
 
 
 
-Attached is a link to the presentation of the project:
-
-https://prezi.com/view/bVVqk21LF0XXkYVDpJhr/
